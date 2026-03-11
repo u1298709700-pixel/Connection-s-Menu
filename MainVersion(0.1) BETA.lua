@@ -11,10 +11,6 @@ local MenuSettings = {
 	DebugText = "menu menu menu";
 	
 	StandartSpeed = Hum.WalkSpeed;
-	
-	WalkSpeed = {
-		CanSlide = false;
-	};
 };
 
 local Window = Rayfield:CreateWindow({
@@ -32,14 +28,6 @@ local Tab = Window:CreateTab("Player", 9525535512)
 
 local Section = Tab:CreateSection("Player")
 
-Section:CreateToggle({
-	Name = "Auto Farm",
-	CurrentValue = false,
-	Callback = function(Value)
-		MenuSettings.WalkSpeed.CanSlide = Value
-	end
-})
-
 Section:CreateSlider({
 	Name = "Walk Speed",
 	Range = {0, 1000},
@@ -53,4 +41,11 @@ Section:CreateSlider({
 	end
 })
 
+function Debug()
+	if MenuSettings.Debug then
+		print("Rayfield: "..MenuSettings.DebugText)
+	end
+end
+
+Debug()
 Rayfield:LoadConfiguration()
