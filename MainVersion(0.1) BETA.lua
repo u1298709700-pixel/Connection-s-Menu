@@ -30,7 +30,9 @@ local Window = Rayfield:CreateWindow({
 
 local Tab = Window:CreateTab("Player", 9525535512)
 
-Tab:CreateToggle({
+local Section = Tab:CreateSection("Player")
+
+Section:CreateToggle({
 	Name = "Auto Farm",
 	CurrentValue = false,
 	Callback = function(Value)
@@ -38,7 +40,7 @@ Tab:CreateToggle({
 	end
 })
 
-Tab:CreateSlider({
+Section:CreateSlider({
 	Name = "Walk Speed",
 	Range = {0, 1000},
 	Increment = 1,
